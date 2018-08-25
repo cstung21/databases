@@ -5,17 +5,22 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 
-// var connection = mysql.createConnection({
-//       user: 'student',
-//       password: 'student',
-//       database: 'chat'
-//     });
+var connection = mysql.createConnection({
+      host: 'http://127.0.0.1:3000/classes/users',
+      user: 'student',
+      password: 'student',
+      database: 'chat'
+    });
  
-// connection.connect();
- 
-// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-//   if (error) throw error;
-//   console.log('The solution is: ', results[0].solution);
-// });
- 
-// connection.end();
+connection.connect(function(err) {
+  if (err) {
+    throw err;
+  } else {
+    console.log('Connected!');
+  }
+});
+
+
+module.exports = {
+  connection: connection
+};
