@@ -6,7 +6,8 @@ var mysql = require('mysql');
 
 
 var connection = mysql.createConnection({
-      host: 'http://127.0.0.1:3000/classes/users',
+      // host: 'http://127.0.0.1:3000/classes/users',
+      host: 'localhost',
       user: 'student',
       password: 'student',
       database: 'chat'
@@ -14,7 +15,7 @@ var connection = mysql.createConnection({
  
 connection.connect(function(err) {
   if (err) {
-    throw err;
+    console.log(err);
   } else {
     console.log('Connected!');
   }
